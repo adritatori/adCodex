@@ -13,7 +13,14 @@ apiKey: process.env.OPEN_API_KEY,
 const openai = new OpenAIApi(configuration);
 
 const app = express();
-app.use(cors());
+
+const corsOptions = {
+  origin: 'https://ad-codex-r8dsqrebd-adritatori.vercel.app',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+app.use(cors(corsOptions));
+//app.use(cors());
 app.use(express.json());
 
 app.get('/', async (req, res) => {

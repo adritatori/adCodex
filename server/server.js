@@ -14,7 +14,12 @@ const openai = new OpenAIApi(configuration);
 
 const app = express();
 
-app.use(cors());
+//app.use(cors());
+app.UseCors(x => x
+  .AllowAnyMethod()
+  .AllowAnyHeader()
+  .SetIsOriginAllowed(origin => true) // allow any origin
+  .AllowCredentials()); 
 // app.use(cors({
 //   origin: 'https://ad-codex.vercel.app',
 // }));

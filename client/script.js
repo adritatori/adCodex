@@ -99,13 +99,12 @@ messageDiv.innerHTML = '';
 if(response.ok){
   const data = await response.json();
   const parsedData = data.bot.trim();
-    console.log(messageDiv);
-    console.log(messageDiv);
+   
   typeText(messageDiv, parsedData);
 }else{
   const err = await response.text();
   messageDiv.innerHTML = "Something went wrong";
-
+  console.log(err);
   alert(err);
 }
 

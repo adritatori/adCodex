@@ -20,6 +20,9 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions));
+
+app.use(cors());
+app.use(express.json());
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -32,9 +35,6 @@ app.use((req, res, next) => {
   }
   next();
 });
-//app.use(cors());
-app.use(express.json());
-
 app.get('/', async (req, res) => {
     res.status(200).send({
       message: 'Hello from CodeX',

@@ -90,7 +90,8 @@ const response = await fetch('https://adcodex.onrender.com/',{
   body:JSON.stringify({
     
     prompt:data.get('prompt')
-  })
+  }),
+  mode: 'cors'
 })
 
 clearInterval(loadInerval);

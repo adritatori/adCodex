@@ -14,17 +14,17 @@ const openai = new OpenAIApi(configuration);
 
 const app = express();
 
-const corsOptions = {
-  origin: 'https://ad-codex-r8dsqrebd-adritatori.vercel.app',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+// const corsOptions = {
+//   origin: 'https://ad-codex-r8dsqrebd-adritatori.vercel.app',
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
-app.use(cors());
-app.use(express.json());
+// app.use(cors());
+
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "https://ad-codex-a7n82y34q-adritatori.vercel.app/");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "OPTIONS, GET, POST, PUT, PATCH, DELETE"
@@ -35,6 +35,8 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+app.use(express.json());
 app.get('/', async (req, res) => {
     res.status(200).send({
       message: 'Hello from CodeX',

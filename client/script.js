@@ -82,7 +82,7 @@ const messageDiv = document.getElementById(uniqueId);
 
 loader(messageDiv);
 console.log(data.get("prompt"));
-const response = await fetch('https://adcodex.onrender.com',{
+const response = await fetch('https://adcodex.onrender.com/',{
   method: 'POST',
   headers:{
     'Content-Type': 'application/json'
